@@ -1,2 +1,16 @@
-API-Testing projects
-this folder contains my POSTMAN collections and API-test reports.
+# Case Study: Flagman.ua Search API Testing
+This folder contains API testing results for an e-comerce search functionality.
+### Tasks Performed:
+- Created a **GET request** with 'query' and 'limit' parameters.
+- Developed **Post-responce scripts** (JavaScript) to validate:
+  - Responce Status Code (200 OK).
+  - Presence of the search keyword in the responce body.
+  - **Performance:** Responce time limits.
+
+### Bug Identified:
+During testing, a **Performance issue** was discovered. The server response time was **748ms**,
+which exceeds the project requirement of **<500ms**.
+
+### Files:
+'Flagman API Tests.postman_collection.json' - Import this into Postman to run the tests.
+'performance-bug-report.png' - Screenshot evidence of the failed performance test.
