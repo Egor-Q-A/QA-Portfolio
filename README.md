@@ -1,5 +1,4 @@
 # QA-Portfolio
-here is my testing training projects
 
 hello! I`m Egor, junior manual QA engineer.
 this repository showcases my testing skills and practical experience.
