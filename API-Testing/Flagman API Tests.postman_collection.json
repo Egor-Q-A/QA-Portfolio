@@ -67,6 +67,103 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "https://r.flagman.ua/api/goods/id/301698/description,description_ua,comments,metadata,group,fish_type",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "    });\r",
+              "    const productID = response.data.id;\r",
+              "    pm.environment.set(\"current_product_id\", productID);\r",
+              "    console.log(\"Product ID set to: \" + productID);\r",
+              "    pm.test(\"Data types are correct\", function () {\r",
+              "        pm.expect(response.data.id).to.be.a('string');\r",
+              "        pm.expect(response.data.name).to.be.a('string');\r",
+              "    });"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "accept-language",
+            "value": "uk,en-US;q=0.9,en;q=0.8,ru;q=0.7"
+          },
+          {
+            "key": "origin",
+            "value": "https://flagman.ua"
+          },
+          {
+            "key": "priority",
+            "value": "u=1, i"
+          },
+          {
+            "key": "referer",
+            "value": "https://flagman.ua/"
+          },
+          {
+            "key": "sec-ch-ua",
+            "value": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\""
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"Windows\""
+          },
+          {
+            "key": "sec-fetch-dest",
+            "value": "empty"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-site"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+          }
+        ],
+        "url": {
+          "raw": "https://r.flagman.ua/api/goods/id/{{current_product_id}}/description,description_ua,comments,metadata,group,fish_type",
+          "protocol": "https",
+          "host": [
+            "r",
+            "flagman",
+            "ua"
+          ],
+          "path": [
+            "api",
+            "goods",
+            "id",
+            "{{current_product_id}}",
+            "description,description_ua,comments,metadata,group,fish_type"
+          ]
+        },
+        "description": "Generated from cURL: curl 'https://r.flagman.ua/api/goods/id/301698/description,description_ua,comments,metadata,group,fish_type' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: uk,en-US;q=0.9,en;q=0.8,ru;q=0.7' \\\r\n  -H 'origin: https://flagman.ua' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://flagman.ua/' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-site' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'"
+      },
+      "response": []
     }
   ]
 }
